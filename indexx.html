@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To do list</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        div {
+            width: 50vw;
+            margin: auto;
+            margin-top: 10px;
+            padding: 5%;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+        #listCont {
+            margin-top: 20px auto;
+            width: 90vw;
+
+        }
+        p {
+            font-size: 1.5rem;
+        }
+        input {
+            width: 70%;
+            padding: 10px;
+            font-size: 1rem;
+            border-radius: 5px;
+            border: 1px solid black;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 1rem;
+            border-radius: 5px;
+            border: none;
+            background-color: #007BFF;
+            color: white;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>To do list</h1>
+    <div>
+        <p>Add a task</p>
+        <input type="text" id="taskInput" placeholder="Enter a task"/>
+        <button onclick="addTask()">Add</button>
+    </div>
+    <div id="listCont">
+        
+    </div>
+</body>
+</html>
