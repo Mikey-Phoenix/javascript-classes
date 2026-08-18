@@ -5,7 +5,7 @@ const container = document.querySelector("#listCont");
 // let tempValue;
 
 function addTask() {
-    console.log(input.value)
+    // console.log(input.value)
     const taskCont = document.createElement('section');
     const task = document.createElement('p');
     const button = document.createElement('button')
@@ -14,8 +14,10 @@ function addTask() {
     taskCont.appendChild(task);
     taskCont.appendChild(button);
     container.appendChild(taskCont);
-}
-
-function removeItem() {
-    
+    button.addEventListener('click', (e)=>{
+        console.log(e.target.parentElement);
+        // e.target.parentElement.style.display = 'none';
+        e.target.parentElement.remove()
+    })
+    input.value = "";
 }
