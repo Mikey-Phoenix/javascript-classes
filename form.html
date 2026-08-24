@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>My Form</h2>
+    <!-- <form id="myform"> -->
+        <label>Name</label>
+        <input type="text" id="name" required>
+        <br><br>
+        
+        <label>Email</label>
+        <input type="email" id="email" required>
+        <br><br>
+        <button>Submit</button>
+    <!-- </form> -->
+    <div id="Result">
+
+    </div>
+    <script>
+        const name = document.querySelector("#name")
+        const email = document.querySelector("#email")
+
+        document.querySelector("button").addEventListener("click", () => {
+            const nameVal = document.createElement("p")
+            const emailVal = document.createElement("p")
+            nameVal.innerText = name.value;
+            emailVal.textContent = email.value;
+            document.querySelector("#Result").appendChild(nameVal)
+            document.querySelector("#Result").appendChild(emailVal)
+        })
+
+    </script>
+</body>
+</html>
