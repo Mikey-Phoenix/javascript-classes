@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="text-align: center; padding: 20%;">
+    <h1>Timeout Exercise</h1>
+    <input type="number" placeholder="Set a starting time">
+    <h1 id="changeText" style="font-size: 50px;">0</h1>
+    <div>
+        <button>Restart</button>
+        <button>Play</button>
+    </div>
+
+    <script>
+        const input = document.querySelector("input");
+        const countHtml = document.querySelector("#changeText");
+        const btnArray = document.querySelectorAll("button");
+        console.log(btnArray)
+        const restartBtn = btnArray[0];
+        const playPause = btnArray[1];
+
+        let toggleVar = 0;
+        let counting;
+        function count () {
+            if (parseInt(countHtml.innerHTML) == 0) {
+                countHtml.innerHTML = input.value
+                console.log("true")
+            } else {
+                input.value = 0
+                console.log("false")
+                if (parseInt(countHtml.innerHTML) <= 0) {
+                    console.log("false false: ", countHtml.innerHTML)
+                    clearInterval(counting) 
+                    toggleVar = 0;
+                    playPause.innerHTML = "Play"                
+                } else {
+                    countHtml.innerHTML = parseInt(countHtml.innerHTML) - 1
+                    console.log("false true")
+                }
+            }
+        }
+
+        playPause.addEventListener("click", ()=>{
+            if (toggleVar == 0) {
+                counting =  setInterval(() => {count()}, 1000)
+                playPause.innerHTML = "Pause";
+                console.log("counting")
+                toggleVar = 1
+            } else {
+                clearInterval(counting);
+                playPause.innerHTML = "Play";
+                console.log("pausing")
+                toggleVar = 0
+            }
+        })
+        
+        restartBtn.addEventListener("click", ()=>{
+            clearInterval(counting)
+            countHtml.innerHTML = 0
+            toggleVar = 0
+            playPause.innerHTML = "Play";
+        })
+    </script>
+</body>
+</html>
