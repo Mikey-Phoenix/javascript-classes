@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div>
+    </div>
+    <script>
+        // API: Application Programming Interface: The .json file where data are kept 
+        // fetch("location of the API")
+        fetch("https://mikey-phoenix.github.io/semester_one_storage/overall-semester-one-storage-file.json")
+        .then(res => res.json())
+        .then(data => {
+            let Name = [data[0], data[1], data[2], data[3]] // getting only first four values of data
+            console.log(Name)
+            Name.forEach(element => {
+                let title = document.createElement('h1')
+                let about = document.createElement('p')
+                let image = document.createElement('img')
+
+                title.innerText = element.name
+                about.innerText = element.about
+                image.src = element.image
+                image.alt = element.name
+
+                document.querySelector("div").appendChild(title)
+                document.querySelector("div").appendChild(about)
+                document.querySelector("div").appendChild(image)
+            });
+            }
+        )
+    </script>
+</body>
